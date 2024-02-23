@@ -4,7 +4,7 @@ const session = require("express-session")
 const multer = require("multer")
 const db = require("./models/db")
 const server = express()
-const port = 2000
+const port = process.env.PORT || 8000
 // const jwt =require("jsonwebtoken")
 
 const upload = multer({dest:"uploads/"})
