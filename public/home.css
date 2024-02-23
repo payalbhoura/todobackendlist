@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#label{
+  font-size:40px;
+  display:flex;
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.header {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 3px 4px rgb(44, 36, 36);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.inner {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   
+}
+
+
+.right {
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 5px 6px rgb(10, 10, 10);
+}
+
+.right > div {
+  margin-left: 10px;
+  height: 40px;
+  width: 40px;
+  background-color: purple;
+  box-shadow: 0px 5px 6px rgb(44, 36, 36);
+  border-radius: 50%;
+  /* box-shadow: 0px 5px 6px rgb(44, 36, 36); */
+}
+
+.sub-container {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  box-shadow: 0px 5px 6px rgb(44, 36, 36);
+}
+
+.c-left,
+.c-right {
+  width: 40%;
+  height: 100%;
+  border-right: 1px solid;
+  box-shadow: 0px 5px 6px rgb(44, 36, 36);
+}
+
+.c-right {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 5px 6px rgb(44, 36, 36);
+}
+
+.sub-menu {
+  height: 12%;
+  box-shadow: 0px 3px 5px grey;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+  box-shadow: 0px 5px 6px rgb(44, 36, 36);
+}
+
+.sub-menu > select {
+  padding: 10px;
+  width: 130px;
+   box-shadow: 0px 5px 6px rgb(44, 36, 36);
+}
+
+.sub-menu > button {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: seagreen;
+  color: white;
+  border-radius: 50%;
+  font-size: 22px;
+}
+
+.list-form {
+  height: 8%;
+  width: 100%;
+  background-color: white;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+  box-shadow: 0px 3px 5px grey;
+}
+
+.list-form > input {
+  padding: 5px 10px;
+}
+
+.list-form > button {
+  padding: 6px 10px;
+  background-color: seagreen;
+  color: white;
+  border: none;
+  box-shadow: 0px 5px 6px rgb(44, 36, 36);
+}
+
+.todo-container {
+  margin-top: 2%;
+  height: 78%;
+  z-index: -1;
+  overflow: auto;
+  /* box-shadow: 0px 5px 6px rgb(44, 36, 36); */
+}
+
+.todo-item {
+  margin: 4px;
+  padding: 10px 10px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 5px 6px rgb(44, 36, 36);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 5px 6px rgb(44, 36, 36);
+}
+
+.actions > button {
+  padding: 5px 8px;
+  border-radius: 5px;
+  margin: 2px;
+  background-color: cornflowerblue;
+  border: none;
+  color: white;
+  box-shadow: 0px 5px 6px rgb(44, 36, 36);
+}
+
+.actions > input {
+  margin: 2px;
+  box-shadow: 0px 5px 6px rgb(44, 36, 36);
+}
+
+.todo-form {
+  width: 250px;
+  height: 180px;
+  box-shadow: 0px 0px 8px rgb(44, 36, 36);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px 0px;
+}
+
+.todo-form > input,
+.todo-form > select,
+.todo-form > button {
+  padding: 5px 10px;
+  width: 80%;
+}
+
+.todo-form > h3 {
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+.todoimg{
+  width:50px;
+  height:50px;
+  box-shadow: 0px 5px 6px rgb(44, 36, 36);
+  
+}

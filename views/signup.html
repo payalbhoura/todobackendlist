@@ -1,0 +1,178 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            width: 100%;
+            height: 11vh;
+            background-color: rgb(47, 47, 155);
+            display: flex;
+            justify-content: center;
+            color: white;
+            align-items: center;
+            font-size: x-large;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container{
+            width: 100%;
+            height: 89vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-container{
+            width: 250px;
+            padding: 30px 30px;
+            background-color: white;
+            box-shadow: 0px 0px 10px gray;
+            position: relative;
+        }
+        .form-container .heading{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .form-group{
+            margin-top: 10px;
+            display: flex;
+            font-weight: 500;
+            flex-direction: column;
+        }
+        input{
+            padding: 8px 10px;
+        }
+        .form-link button{
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: white;
+            background-image: linear-gradient(to left, red, purple);
+            border: none;
+            width: 100%;
+            font-weight: bold;
+        }
+        .form-link button:hover{
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: white;
+            background-image: linear-gradient(to right, red, purple);
+            border: none;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .cross{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .link{
+            text-align: center;
+
+        }
+        .link>a{
+            text-decoration: none;
+            color: blue;
+        }
+        .profile_input{
+            border: 1px solid gray;
+            padding: 8px 10px;
+            margin: 5px 0px;
+            margin-top: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        Welcome
+    </div>
+    <div class="container">
+        <div class="form-container">
+            <span class="cross">x</span>
+            <h2 class="heading">Sign Up</h2>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" type="text" placeholder="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" type="password" placeholder="password">
+            </div>
+            <div class="form-group" >
+                <label for="profile-pic">Profile Picture</label>
+                <input class="profile_input" id="profile-pic" type="file" placeholder="password" >
+            </div>
+            <div class="form-link">
+                <button id="signup_btn">Sign Up</button>
+            </div>
+            <p class="link">Already have account? <a href="/login">Login</a></p>
+        </div>
+    </div>
+</body>
+<script>
+    const email = document.getElementById("email")
+    const password = document.getElementById("password")
+    const name = document.getElementById("name")
+    const p_img = document.getElementById("profile-pic")
+
+    document.getElementById("signup_btn").addEventListener("click",()=>{
+        if(email.value.trim==""){
+            alert("Enter email")
+            return
+        }
+        if(password.value.trim==""){
+            alert("Enter email")
+            return
+        }
+        if(name.value.trim==""){
+            alert("Enter email")
+            return
+        }
+        if(p_img.files[0]==null){
+            alert("Please select a profile pic")
+            return
+        }
+        const formData = new FormData()
+        formData.append("email",email.value)
+        formData.append("password",password.value)
+        formData.append("name",name.value)
+        formData.append("profile",p_img.files[0])
+        console.log(formData);
+
+        fetch("/signup",{
+            method:"POST",
+            body:formData,
+            redirect:"follow"
+        })
+        .then((result) => {
+            if(result.redirected){
+                window.location.href = result.url
+                return
+            } else if(result.status==409){
+                alert("This email exists already")
+                return
+            } else {
+                alert("Something went wrong")
+            }
+        }).catch((err) => {
+            console.log(err);
+            alert(err)
+        });
+    })
+</script>
+</html>
